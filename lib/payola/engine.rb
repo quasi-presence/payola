@@ -20,11 +20,11 @@ module Payola
 
     initializer :inject_helpers do |app|
       ActiveSupport.on_load :action_controller do
-        ::ApplicationController.send(:helper, Payola::PriceHelper)
+        helper Payola::PriceHelper
       end
 
       ActiveSupport.on_load :action_mailer do
-        ::ActionMailer::Base.send(:helper, Payola::PriceHelper)
+        helper Payola::PriceHelper
       end
     end
 
